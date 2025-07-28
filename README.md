@@ -8,4 +8,19 @@ Acesse a pasta plataform_2d — é nela que está o projeto principal do jogo.
 
 Abra o projeto no Godot, preferencialmente na versão 4.3.
 
-Também é possível usar versões superiores da Godot 4.x, mas a compatibilidade completa é garantida na 4
+Também é possível usar versões superiores da Godot 4.x, mas a compatibilidade completa é garantida na 4.3.
+
+⚙️ Requisitos
+Godot Engine 4.3 ou superior
+
+Sistema operacional compatível (Windows, Linux, macOS)
+
+🛠️ Desenvolvimento
+Este projeto foi desenvolvido como parte do meu TCC, com foco em:
+
+Desenvolvimento de jogos em Godot
+
+Design de níveis e mecânicas de plataforma
+
+Organização de código em GDScript
+
