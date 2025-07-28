@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctrin8ocaje1b"]
+
+[ext_resource type="Script" path="res://scripts/tela_sobre.gd" id="1_f18q8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f18q8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -16.0
+offset_top = -7.0
+offset_right = 639.0
+offset_bottom = 366.0
+color = Color(0.28, 0.28, 0.28, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 279.0
+offset_top = 16.0
+offset_right = 620.0
+offset_bottom = 39.0
+text = "Verlene"
+uppercase = true
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+offset_left = 63.0
+offset_top = 67.0
+offset_right = 404.0
+offset_bottom = 90.0
+text = "Comandos:"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 63.0
+offset_top = 101.0
+offset_right = 404.0
+offset_bottom = 124.0
+text = "Pilula de nanicolina:  Pressione F
+"
+
+[node name="Label4" type="Label" parent="CanvasLayer"]
+offset_left = 62.0
+offset_top = 136.0
+offset_right = 403.0
+offset_bottom = 159.0
+text = "Pulo Duplo: Pressione a tecla espaço 2 vezes
+"
+
+[node name="Label5" type="Label" parent="CanvasLayer"]
+offset_left = 61.0
+offset_top = 167.0
+offset_right = 403.0
+offset_bottom = 190.0
+text = "Movimentação: w,a,s,d"
+
+[node name="Label5" type="Label" parent="CanvasLayer/Label5"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 31.0
+offset_right = 355.0
+offset_bottom = 54.0
+text = "Atauque: Pressione K ou Botão esq. do mouse"
+
+[node name="Label6" type="Label" parent="CanvasLayer"]
+offset_left = 148.0
+offset_top = 258.0
+offset_right = 490.0
+offset_bottom = 281.0
+text = "Em memoria a minha mãe, Iêda Verlene <3
+De seu querido filho, Claudemiro Bispo"
+
+[node name="Label7" type="Label" parent="CanvasLayer"]
+offset_left = 59.0
+offset_top = 215.0
+offset_right = 655.0
+offset_bottom = 238.0
+text = "__________________________________________________________________________"
+
+[node name="Label8" type="Label" parent="CanvasLayer"]
+offset_left = 64.0
+offset_top = 35.0
+offset_right = 660.0
+offset_bottom = 58.0
+text = "__________________________________________________________________________"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 62.0
+offset_top = 15.0
+offset_right = 166.0
+offset_bottom = 46.0
+text = "Voltar"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

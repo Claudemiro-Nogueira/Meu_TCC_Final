@@ -1,0 +1,155 @@
+[gd_scene load_steps=19 format=3 uid="uid://bjh7tjm44tmmc"]
+
+[ext_resource type="Texture2D" uid="uid://dp6swmelc7q8a" path="res://Sprites/caverna/bota.png" id="1_rpyio"]
+[ext_resource type="Script" path="res://scripts/double_jump.gd" id="2_j1hoh"]
+[ext_resource type="AudioStream" uid="uid://chf6iyshpwrre" path="res://audios/Minifantasy_Dungeon_SFX/04_sack_open_3.wav" id="3_5w3iw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtfwx"]
+atlas = ExtResource("1_rpyio")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4jgp"]
+atlas = ExtResource("1_rpyio")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v23m"]
+atlas = ExtResource("1_rpyio")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj2lo"]
+atlas = ExtResource("1_rpyio")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7s7w"]
+atlas = ExtResource("1_rpyio")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8phm"]
+atlas = ExtResource("1_rpyio")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtp66"]
+atlas = ExtResource("1_rpyio")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1ad8"]
+atlas = ExtResource("1_rpyio")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46r5t"]
+atlas = ExtResource("1_rpyio")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwaco"]
+atlas = ExtResource("1_rpyio")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nqvwy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtfwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4jgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v23m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj2lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7s7w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8phm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtp66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1ad8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46r5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwaco")
+}],
+"loop": true,
+"name": &"sumir",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ue68n"]
+size = Vector2(24, 20)
+
+[sub_resource type="Animation" id="Animation_pny4b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1lb1t"]
+resource_name = "new_animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ruyr"]
+_data = {
+"RESET": SubResource("Animation_pny4b"),
+"new_animation": SubResource("Animation_1lb1t")
+}
+
+[node name="Node2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_nqvwy")
+animation = &"sumir"
+autoplay = "default"
+frame = 3
+frame_progress = 0.693655
+script = ExtResource("2_j1hoh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_ue68n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1ruyr")
+}
+
+[node name="pegar_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5w3iw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="pegar_sfx" to="." method="_on_pegar_sfx_finished"]

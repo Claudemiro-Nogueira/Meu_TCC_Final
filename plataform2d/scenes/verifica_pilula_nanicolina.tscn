@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://by6sp87glegmh"]
+
+[ext_resource type="Script" path="res://scripts/verifica_pilula_nanicolina.gd" id="1_rdqw3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qj24"]
+size = Vector2(1052.75, 1614.38)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_rdqw3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5qj24")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

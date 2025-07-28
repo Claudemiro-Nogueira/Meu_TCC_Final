@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvffh4rin66fh"]
+
+[ext_resource type="Script" path="res://scripts/mudar_de_mundo.gd" id="1_m6ror"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwem1"]
+size = Vector2(130, 98)
+
+[node name="mudar_de_mundo" type="Area2D"]
+position = Vector2(3112, 40)
+script = ExtResource("1_m6ror")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(55, 39)
+shape = SubResource("RectangleShape2D_gwem1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

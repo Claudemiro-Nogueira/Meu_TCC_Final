@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://fmuj1213fst7"]
+
+[ext_resource type="Texture2D" uid="uid://bjq16a0x33cuu" path="res://Sprites/Glacial-mountains-parallax-background_vnitti_v3/Glacial-mountains-parallax-background_vnitti/Layers/glacial_mountains_lightened.png" id="1_am577"]
+[ext_resource type="Texture2D" uid="uid://c7dwrcdf32w52" path="res://Sprites/Glacial-mountains-parallax-background_vnitti_v3/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_3.png" id="2_hqxfn"]
+[ext_resource type="Texture2D" uid="uid://cgr5au05i2hfw" path="res://Sprites/Glacial-mountains-parallax-background_vnitti_v3/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_2.png" id="3_berok"]
+[ext_resource type="Texture2D" uid="uid://2i3fvos43ref" path="res://Sprites/Glacial-mountains-parallax-background_vnitti_v3/Glacial-mountains-parallax-background_vnitti/Layers/clouds_mg_1_lightened.png" id="4_kkdv0"]
+[ext_resource type="Texture2D" uid="uid://j5hc22sdjxr6" path="res://Sprites/Glacial-mountains-parallax-background_vnitti_v3/Glacial-mountains-parallax-background_vnitti/Layers/cloud_lonely.png" id="5_1ynxj"]
+
+[sub_resource type="Curve" id="Curve_s0bil"]
+_data = [Vector2(0.505495, 0.186813), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_y5fsh"]
+_data = [Vector2(0.472528, 0.538462), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_bwi0p"]
+_data = [Vector2(0.384615, 0.879121), 0.0, 0.0, 0, 0, Vector2(0.697802, 0.802198), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_gxw78"]
+curve_x = SubResource("Curve_s0bil")
+curve_y = SubResource("Curve_y5fsh")
+curve_z = SubResource("Curve_bwi0p")
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node"]
+position = Vector2(640, 161.875)
+scale = Vector2(1616, 556.25)
+texture = SubResource("CurveXYZTexture_gxw78")
+
+[node name="montanha" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="montanha"]
+position = Vector2(320, 104)
+scale = Vector2(1.66667, 1.67593)
+texture = ExtResource("1_am577")
+
+[node name="nuvens" type="ParallaxLayer" parent="."]
+position = Vector2(0, -72)
+motion_mirroring = Vector2(384, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="nuvens"]
+position = Vector2(200, 96)
+scale = Vector2(1.66667, 1)
+texture = ExtResource("5_1ynxj")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(639, 0)
+
+[node name="fundo" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(320, 96)
+scale = Vector2(1.66667, 1.83333)
+texture = ExtResource("2_hqxfn")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(320, 112)
+scale = Vector2(1.66667, 1.94444)
+texture = ExtResource("3_berok")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(320, 112)
+scale = Vector2(1.66667, 2.01852)
+texture = ExtResource("4_kkdv0")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+position = Vector2(320, 176)
+scale = Vector2(1.66667, 2.12037)
+texture = ExtResource("3_berok")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://daeqv1867jc1u"
+path="res://.godot/imported/05. Long Journey.mp3-e046e283465cd6e38aa88a2f71a629f5.mp3str"
+
+[deps]
+
+source_file="res://audios/05. Long Journey.mp3"
+dest_files=["res://.godot/imported/05. Long Journey.mp3-e046e283465cd6e38aa88a2f71a629f5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

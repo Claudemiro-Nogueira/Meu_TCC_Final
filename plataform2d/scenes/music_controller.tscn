@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://df6ccl0fnnisr"]
+
+[ext_resource type="AudioStream" uid="uid://dm78inrio6ms8" path="res://audios/[ROYALTY FREE AMBIENT MUSIC] All Hail Blue Whale - The Paulscapes Project.mp3" id="1_ix8ip"]
+
+[node name="MusicController" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_ix8ip")
+volume_db = -10.0

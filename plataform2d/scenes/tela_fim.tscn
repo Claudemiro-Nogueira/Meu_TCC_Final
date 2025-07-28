@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ctv104cx470k0"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -74.0
+offset_top = -22.0
+offset_right = 733.0
+offset_bottom = 384.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 155.0
+offset_right = 402.0
+offset_bottom = 178.0
+text = "Obrigado por Jogar!"

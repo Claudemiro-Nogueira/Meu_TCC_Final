@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpxidk6iy72ug"]
+
+[ext_resource type="Texture2D" uid="uid://d3x10ypllmgdk" path="res://Sprites/8-Tile-Sets/sheet.png" id="1_g3eah"]
+
+[node name="placa" type="Sprite2D"]
+texture = ExtResource("1_g3eah")
+hframes = 17
+vframes = 8
+frame = 31

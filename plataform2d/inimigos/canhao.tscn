@@ -1,0 +1,81 @@
+[gd_scene load_steps=14 format=3 uid="uid://e5gf166drxj8"]
+
+[ext_resource type="Texture2D" uid="uid://dqd8twvhkmri8" path="res://Sprites/7-Objects/16-Enemy-Cannon/2-Attack/1.png" id="1_3iggc"]
+[ext_resource type="Script" path="res://scripts/canhao.gd" id="1_xs500"]
+[ext_resource type="Texture2D" uid="uid://bk7p0avaw3f5a" path="res://Sprites/7-Objects/16-Enemy-Cannon/2-Attack/2.png" id="2_m36yj"]
+[ext_resource type="Texture2D" uid="uid://bb828tkq5eq2f" path="res://Sprites/7-Objects/16-Enemy-Cannon/2-Attack/3.png" id="3_vetp2"]
+[ext_resource type="Texture2D" uid="uid://cwmxv1gy688kf" path="res://Sprites/7-Objects/16-Enemy-Cannon/2-Attack/4.png" id="4_ccmnw"]
+[ext_resource type="Texture2D" uid="uid://7k0lb1qe85ej" path="res://Sprites/7-Objects/16-Enemy-Cannon/2-Attack/5.png" id="5_sy5my"]
+[ext_resource type="Texture2D" uid="uid://bd8g6b0oxu3qp" path="res://Sprites/7-Objects/16-Enemy-Cannon/2-Attack/6.png" id="6_xmm7l"]
+[ext_resource type="Texture2D" uid="uid://qxceekwgu6ux" path="res://Sprites/7-Objects/16-Enemy-Cannon/2-Attack/7.png" id="7_b5tnh"]
+[ext_resource type="Texture2D" uid="uid://by7r2o0by0ftr" path="res://Sprites/7-Objects/16-Enemy-Cannon/2-Attack/8.png" id="8_yidkr"]
+[ext_resource type="Texture2D" uid="uid://cwob3yusbqe1v" path="res://Sprites/7-Objects/16-Enemy-Cannon/2-Attack/9.png" id="9_j58x2"]
+[ext_resource type="Texture2D" uid="uid://dhvj4w1oe5x6l" path="res://Sprites/7-Objects/16-Enemy-Cannon/1-Idle/1.png" id="10_813xf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eyvpp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3iggc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m36yj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vetp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ccmnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sy5my")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xmm7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b5tnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yidkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_j58x2")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_813xf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qf5k"]
+size = Vector2(49, 43)
+
+[node name="StaticBody2D" type="StaticBody2D" groups=["canhao"]]
+position = Vector2(256, 136)
+collision_layer = 8
+script = ExtResource("1_xs500")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eyvpp")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_6qf5k")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-47, -3)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
