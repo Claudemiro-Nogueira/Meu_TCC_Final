@@ -1,7 +1,7 @@
 # 🎮 Jogo Verlene - Meu TCC Final
 
 Bem-vindo ao repositório do **Jogo Verlene**, um projeto desenvolvido como Trabalho de Conclusão de Curso (TCC).  
-Este é um jogo em 2D de plataforma, criado com a engine **Godot**.
+Este é um jogo em 2D estilo metroidvania, criado com a engine **Godot**.
 
 ---
 
@@ -27,5 +27,5 @@ Para jogar o Jogo Verlene, siga os passos abaixo:
 Este projeto foi desenvolvido como parte do meu TCC, com foco em:
 
 - Desenvolvimento de jogos em **Godot**
-- Design de níveis e mecânicas de **plataforma**
+- Design de níveis e mecânicas de **metroidvania**
 - Organização de código em **GDScript**
